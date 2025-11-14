@@ -1,0 +1,23 @@
+class Solution {
+public:
+    int compress(vector<char>& chars) {
+        int ind= 0,n=chars.size();
+        for(int i=0;i<n;)
+        {
+char ch = chars[i];
+int count = 0;
+while(i<n&&chars[i]==ch){
+    count++;i++;
+}
+if(count==1){chars[ind++]=ch;}
+else{
+    chars[ind++]=ch;
+    string str = to_string(count);
+    for(char dig : str){
+        chars[ind++]=dig;
+    }
+}
+
+        }
+chars.resize(ind);return ind;   }
+};
